@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Your Order - SwiftDeliver</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Swift<span>Deliver</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="order.html" class="active">Place Order</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn-login" id="loginBtn">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Order Form Section -->
+    <section class="order-section">
+        <div class="container">
+            <div class="order-header">
+                <h1>Place Your <span>Delivery Order</span></h1>
+                <p>Fill in the details below and we'll get it delivered to you!</p>
+            </div>
+            
+            <div class="order-form-container glass">
+                <form id="orderForm">
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-user"></i> Personal Information</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" required placeholder="Enter your full name">
+                                <div class="error" id="fullNameError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number *</label>
+                                <input type="tel" id="phoneNumber" required placeholder="Enter your phone number">
+                                <div class="error" id="phoneNumberError"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Delivery Information -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-map-marker-alt"></i> Delivery Information</h2>
+                        <div class="form-group">
+                            <label for="deliveryAddress">Delivery Address *</label>
+                            <textarea id="deliveryAddress" rows="3" required placeholder="Enter complete delivery address"></textarea>
+                            <div class="error" id="deliveryAddressError"></div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" required placeholder="Enter city">
+                                <div class="error" id="cityError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="zipCode">Zip Code *</label>
+                                <input type="text" id="zipCode" required placeholder="Enter zip code">
+                                <div class="error" id="zipCodeError"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Order Category -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-list"></i> Order Category</h2>
+                        <div class="category-grid">
+                            <div class="category-option">
+                                <input type="radio" id="food" name="category" value="food" checked>
+                                <label for="food">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Food Delivery</span>
+                                    <small>Restaurant meals</small>
+                                </label>
+                            </div>
+                            <div class="category-option">
+                                <input type="radio" id="grocery" name="category" value="grocery">
+                                <label for="grocery">
+                                    <i class="fas fa-shopping-basket"></i>
+                                    <span>Grocery</span>
+                                    <small>Supermarket items</small>
+                                </label>
+                            </div>
+                            <div class="category-option">
+                                <input type="radio" id="parcel" name="category" value="parcel">
+                                <label for="parcel">
+                                    <i class="fas fa-box"></i>
+                                    <span>Parcel</span>
+                                    <small>Packages & documents</small>
+                                </label>
+                            </div>
+                            <div class="category-option">
+                                <input type="radio" id="other" name="category" value="other">
+                                <label for="other">
+                                    <i class="fas fa-gift"></i>
+                                    <span>Other Items</span>
+                                    <small>Anything else</small>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Order Details -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-clipboard-list"></i> Order Details</h2>
+                        <div class="form-group">
+                            <label for="orderDescription">Item Description *</label>
+                            <textarea id="orderDescription" rows="3" required placeholder="Describe what you want to order..."></textarea>
+                            <div class="error" id="orderDescriptionError"></div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <input type="number" id="quantity" min="1" value="1" placeholder="How many items?">
+                            </div>
+                            <div class="form-group">
+                                <label for="weight">Estimated Weight (kg)</label>
+                                <input type="number" id="weight" min="0.1" step="0.1" placeholder="e.g., 2.5">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialInstructions">Special Instructions</label>
+                            <textarea id="specialInstructions" rows="2" placeholder="Any special requirements or instructions..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Delivery Time -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-clock"></i> Delivery Time</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="deliveryDate">Preferred Date *</label>
+                                <input type="date" id="deliveryDate" required>
+                                <div class="error" id="deliveryDateError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="deliveryTime">Preferred Time *</label>
+                                <select id="deliveryTime" required>
+                                    <option value="">Select time</option>
+                                    <option value="morning">Morning (8 AM - 12 PM)</option>
+                                    <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                                    <option value="evening">Evening (4 PM - 8 PM)</option>
+                                    <option value="night">Night (8 PM - 11 PM)</option>
+                                </select>
+                                <div class="error" id="deliveryTimeError"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Method -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-credit-card"></i> Payment Method</h2>
+                        <div class="payment-options">
+                            <div class="payment-option">
+                                <input type="radio" id="cash" name="payment" value="cash" checked>
+                                <label for="cash">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Cash on Delivery</span>
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" id="card" name="payment" value="card">
+                                <label for="card">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Credit/Debit Card</span>
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" id="digital" name="payment" value="digital">
+                                <label for="digital">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Digital Wallet</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit-order">
+                            <i class="fas fa-paper-plane"></i> Place Order
+                        </button>
+                        <button type="button" class="btn-back" onclick="window.location.href='index.html'">
+                            <i class="fas fa-arrow-left"></i> Back to Home
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Order Summary (Optional Sidebar) -->
+            <div class="order-summary glass">
+                <h3><i class="fas fa-receipt"></i> Order Summary</h3>
+                <div class="summary-details">
+                    <div class="summary-item">
+                        <span>Service Fee:</span>
+                        <span class="price">$5.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Delivery Charge:</span>
+                        <span class="price">$3.50</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Tax:</span>
+                        <span class="price">$1.25</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total:</span>
+                        <span class="price">$9.75</span>
+                    </div>
+                </div>
+                <div class="summary-note">
+                    <p><i class="fas fa-info-circle"></i> Final price may vary based on distance and item specifics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="order.js"></script>
+</body>
+</html>
